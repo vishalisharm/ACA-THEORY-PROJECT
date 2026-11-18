@@ -1,0 +1,8 @@
+metric,predictor,min_pct,max_pct,avg_pct,source
+MPKI reduction vs 64K TSL,LLBP,0.6,25,8.8,Sec. II-C.5 / Fig. 4
+MPKI reduction vs 64K TSL,LLBP-X,1.4,27,12.1,Sec. VII-A / Fig. 12
+MPKI reduction vs 64K TSL,LLBP-X Opt-W,1.7,28.4,12.6,Sec. VII-A / Fig. 12
+MPKI reduction vs 64K TSL,512K TSL,12.7,46.1,27.5,Sec. VII-A / Fig. 12
+Accuracy gain over LLBP,LLBP-X,0.8,11.5,3.6,Abstract / Sec. VII-A
+Share of LLBP->LLBP-X MPKI gain,depth adaptation,,,82,Sec. VII-E (graph omitted in paper)
+Share of LLBP->LLBP-X MPKI gain,history range selection,,,18,Sec. VII-E (graph omitted in paper)

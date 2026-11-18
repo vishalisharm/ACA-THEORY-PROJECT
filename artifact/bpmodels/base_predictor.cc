@@ -1,0 +1,47 @@
+
+
+#include "base_predictor.h"
+
+#include "tage/tage.h"
+#include "tage/tage_scl.h"
+#include "llbp/llbp.h"
+#include "llbpx/llbpx.h"
+
+
+BasePredictor* CreateBP(std::string bp_name)
+{
+    if (bp_name == "tage64k") {
+        return new LLBP::Tage64k();
+    } else if (bp_name == "tage64kscl") {
+        return new LLBP::TageSCL64k();
+    } else if (bp_name == "tage512kscl") {
+        return new LLBP::TageSCL512k();
+    } else if (bp_name == "llbp") {
+        return new LLBP::LLBPTageSCL64k();
+    } else if (bp_name == "llbp-timing") {
+        return new LLBP::LLBPTageSCL64kTiming();
+    } else if (bp_name == "llbpx") {
+        return new LLBP::LLBPXTSCL64k();
+    } else if (bp_name == "llbpx-optw") {
+        return new LLBP::LLBPXTSCL64kTimingOptW();
+    } else if (bp_name == "llbpx-timing") {
+        return new LLBP::LLBPXTSCL64kTiming();
+    // [PROJECT-MOD] ablation models (see bpmodels/llbpx/llbpx.h)
+    // [PROJECT-MOD] reachable deep->shallow reversion
+    } else if (bp_name == "llbpx-timing-revert") {
+        return new LLBP::LLBPXTSCL64kTimingRevert();
+    } else if (bp_name == "llbpx-nodepth") {
+        return new LLBP::LLBPXAblation<false, false, true>();
+    } else if (bp_name == "llbpx-norange") {
+        return new LLBP::LLBPXAblation<false, true, false>();
+    } else if (bp_name == "llbpx-timing-nodepth") {
+        return new LLBP::LLBPXAblation<true, false, true>();
+    } else if (bp_name == "llbpx-timing-norange") {
+        return new LLBP::LLBPXAblation<true, true, false>();
+    } else {
+        std::cout << "Wrong BP name: " << bp_name << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+

@@ -1,0 +1,15 @@
+md5:7bcadcfcc470d49145c770e68e628480 benchbase-wikipedia.champsim.trace.gz
+md5:23501903d6b9d935823d6c490635be9f benchbase-twitter.champsim.trace.gz
+md5:9bd64949d85e99a88978161ac7ab61b0 dacapo-kafka.champsim.trace.gz
+md5:0a4fd1c3f0a6d39f844ad9f2ece2b61d charlie.1006518.champsim.trace.gz
+md5:343f7b58104fc6601bed9406f18e0940 dacapo-spring.champsim.trace.gz
+md5:654cb0999892f2a866386afdf858faed benchbase-tpcc.champsim.trace.gz
+md5:e9366d7f6c38e9f75e1eaf174c6c0d21 dacapo-tomcat.champsim.trace.gz
+md5:91e4f11b8c5e0404c161af5569b1713e delta.507252.champsim.trace.gz
+md5:e6fb1ecb04de73b462140c216c490bce merced.467915.champsim.trace.gz
+md5:c4dd68037e69ff1241eb8450686ea527 mwnginxfpm-wiki.champsim.trace.gz
+md5:5c0700d4b1b2f4bfc1d0bebeb7e08256 nodeapp-nodeapp.champsim.trace.gz
+md5:01c234e3e73e20b5498cea5fdea0761b renaissance-finagle-chirper.champsim.trace.gz
+md5:d9dd9a1b000eb9c7084ba74ce4f10983 nodeapp-nodeapp-small.champsim.trace.gz
+md5:063c076780a0f363a0a589530e75e1ca renaissance-finagle-http.champsim.trace.gz
+md5:47ef5e3e6dd616b18bf0afa3b5841f2a whiskey.426708.champsim.trace.gz

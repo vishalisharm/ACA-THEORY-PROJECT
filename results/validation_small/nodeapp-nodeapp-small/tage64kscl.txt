@@ -1,0 +1,133 @@
+brmodel: tage64kscl, workload: traces  trace: /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz, output: results/validation_small/nodeapp-nodeapp-small/tage64kscl
+TAGE Config: nhist=36 minhist=6 maxhist=3000 LogG=10 LogB=13 Tbits=8 nbanklow=10 nbankhigh=20 born=13 assoc_start=9 assoc_end=23
+LogG:10, TBITS:8, UWIDTH:1, CWIDTH:3, ALTWIDTH:5, LogB:13, Hyst:2
+ (TAGE 463917)  (TOTAL 463917 bits 453 Kbits) 8x1024 8x1024 8x1024 8x1024 8x1024 8x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 12x1024 
+6 12 26 26 37 37 54 54 78 78 112 112 161 161 232 232 335 482 695 1444 3000 
+TAGE: N:21504 -> SIZE:340992,333K
+BASE: Dir:8192, Hyst:2048 -> SIZE: 10240, 10K
+nhist= 36; MInhist= 6; MAXHIST= 3000; STORAGESIZE= 351232, 343KB; NBENTRY= 21504
+SCL Config: useSC=1, useLoop=1
+ (LOOP 1248)  (SC 58190) BTB:
+Basic BTB sets: 2048 ways: 8 Total entries: 16384
+Indirect:
+history lengths: 0 0 10 16 27 44 60 96 109 219 449 487 714 1313 2146 3881 
+ITTAGE tables: 64768 bytes;Region table: 240 bytes;IUM: 384 bytes;Total Storage= 65392 bytes;
+RAS:
+RAS size: 64
+Starting simulation...
+Nbr: 1M Ninst: 5M| MPKI:     3.2969 : 17437,705425 | TotalMPKI:     3.2969 : 17437,705425 | UC:294574 | nB:1000000
+-----------------------------------------------
+       Warmup complete after 10000000 instr 
+-----------------------------------------------
+Nbr: 2M Ninst: 10M| MPKI:     5.2005 : 1938,47784 | TotalMPKI:     2.8771 : 29843,1405427 | UC:594572 | nB:2000000
+Nbr: 3M Ninst: 15M| MPKI:     3.2181 : 16848,722773 | TotalMPKI:     2.9374 : 44753,2080416 | UC:919583 | nB:3000000
+Nbr: 4M Ninst: 20M| MPKI:     2.2980 : 23701,1438771 | TotalMPKI:     2.5405 : 51606,2796414 | UC:1203585 | nB:4000000
+
+gzip: /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz: unexpected end of file
+*** Reached end of trace. Repeating trace: gzip -dc /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz
+Nbr: 5M Ninst: 25M| MPKI:     2.9542 : 44635,2163836 | TotalMPKI:     2.8890 : 72540,3521479 | UC:1478520 | nB:5000000
+
+AllBr:4999999, CondBr:2163836, TakenBr:1774129, Ticks:3128615
+Bi : 1083553(0.50076) | BiW : 22138(0.02043) | BiC : 1061415(0.97957)
+TG : 1078026(0.49820) | TGW : 22232(0.02062) | TGC: 1055794(0.97938) 
+ATG: 2257(0.00104) | ATW : 708(0.31369) | ATC: 1549(0.68631)
+Prov: T:[AS:320773 AC:6537, BS:539449 AC:12005], A:[TS:1174 TC:527, BS:1311 BC:337], B:[TS:531 TC:273, AS:0 AC:0]
+MPKI:: BASE:22.2994, TAGE:1.7953 Red:514839 (91.9492) Instr:25109092
+P0: 1083553, 0.50076 | C: 1061415, 0.49052 | W: 22138, 0.01023 | Alloc:0 | Allias: p:78,n:106
+P2: 181500, 0.08388 | C: 178458, 0.08247 | W: 3042, 0.00141 | Alloc:5473 | Allias: p:5353,n:144
+P6: 305461, 0.14117 | C: 301543, 0.13936 | W: 3918, 0.00181 | Alloc:8576 | Allias: p:3995,n:259
+P9: 99863, 0.04615 | C: 98265, 0.04541 | W: 1598, 0.00074 | Alloc:7200 | Allias: p:7460,n:327
+P10: 96961, 0.04481 | C: 95320, 0.04405 | W: 1641, 0.00076 | Alloc:7280 | Allias: p:9506,n:357
+P11: 30749, 0.01421 | C: 29721, 0.01374 | W: 1028, 0.00048 | Alloc:3661 | Allias: p:6692,n:373
+P12: 32422, 0.01498 | C: 31300, 0.01447 | W: 1122, 0.00052 | Alloc:3514 | Allias: p:5616,n:406
+P13: 52666, 0.02434 | C: 51542, 0.02382 | W: 1124, 0.00052 | Alloc:6677 | Allias: p:535,n:41
+P14: 62887, 0.02906 | C: 61745, 0.02853 | W: 1142, 0.00053 | Alloc:6376 | Allias: p:231,n:30
+P15: 31327, 0.01448 | C: 30430, 0.01406 | W: 897, 0.00041 | Alloc:4327 | Allias: p:815,n:38
+P16: 34807, 0.01609 | C: 33870, 0.01565 | W: 937, 0.00043 | Alloc:4426 | Allias: p:898,n:55
+P17: 22403, 0.01035 | C: 21805, 0.01008 | W: 598, 0.00028 | Alloc:3779 | Allias: p:255,n:36
+P18: 27606, 0.01276 | C: 26975, 0.01247 | W: 631, 0.00029 | Alloc:3776 | Allias: p:490,n:30
+P19: 21813, 0.01008 | C: 20963, 0.00969 | W: 850, 0.00039 | Alloc:2692 | Allias: p:615,n:76
+P20: 17562, 0.00812 | C: 16685, 0.00771 | W: 877, 0.00041 | Alloc:2610 | Allias: p:401,n:48
+P21: 12607, 0.00583 | C: 12043, 0.00557 | W: 564, 0.00026 | Alloc:2125 | Allias: p:290,n:57
+P22: 11285, 0.00522 | C: 10577, 0.00489 | W: 708, 0.00033 | Alloc:2226 | Allias: p:262,n:76
+P24: 14135, 0.00653 | C: 13528, 0.00625 | W: 607, 0.00028 | Alloc:2232 | Allias: p:505,n:87
+P26: 10082, 0.00466 | C: 9444, 0.00436 | W: 638, 0.00029 | Alloc:2202 | Allias: p:271,n:106
+P28: 6015, 0.00278 | C: 5556, 0.00257 | W: 459, 0.00021 | Alloc:1927 | Allias: p:211,n:107
+P32: 5404, 0.00250 | C: 5058, 0.00234 | W: 346, 0.00016 | Alloc:2048 | Allias: p:230,n:181
+P36: 2728, 0.00126 | C: 2515, 0.00116 | W: 213, 0.00010 | Alloc:1589 | Allias: p:239,n:139
+Allocations:84716, Init:44059, AperI:1.92, TriesPerInit:3.555 | Useful: 0 | TC: 2118758, TW: 45078, uReset:1
+SCL:: L:[P:5932(0.0027) C:5925(0.9988), W:7(0.0012)] SC:[P:3527(0.0016) C:1980(0.5614), W:1547(0.4386)] TAGE:[P:2154377(0.9956) C:2111296(0.9800), W:43081(0.0200)] 
+MPKI:: TAGE:1.79529, SCL:1.77764 Red:0.98274 
+
+Nbr: 6M Ninst: 30M| MPKI:     2.4299 : 49546,2870170 | TotalMPKI:     2.5486 : 77451,4227813 | UC:1772186 | nB:6000000
+Nbr: 7M Ninst: 35M| MPKI:     2.3491 : 59647,3566370 | TotalMPKI:     2.4738 : 87552,4924013 | UC:2075986 | nB:7000000
+Nbr: 8M Ninst: 40M| MPKI:     2.2322 : 67725,4245631 | TotalMPKI:     2.3706 : 95630,5603274 | UC:2396725 | nB:8000000
+Nbr: 9M Ninst: 45M| MPKI:     2.1180 : 74775,4967851 | TotalMPKI:     2.2664 : 102680,6325494 | UC:2674505 | nB:9000000
+
+gzip: /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz: unexpected end of file
+*** Reached end of trace. Repeating trace: gzip -dc /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz
+  TRACE 	 : /home/student/LLBP-X-Project/artifact/traces/nodeapp-nodeapp-small.champsim.trace.gz
+  TOTAL -------------------------------------
+  NUM_INSTRUCTIONS    :   50000001
+  NUM_BR              :    9967486 (0.1993)
+  NUM_UNCOND_BR       :    2948579 (0.2958)
+  NUM_CONDITIONAL_BR  :    7018906 (0.7042)
+  NUM_TAKEN_BR        :    2914614 (0.2924)
+  NUM_MISPREDICTIONS  :     116131
+  Cond Ratio          : 0.011651
+  Cond MPKI           :     2.3226
+  REGION OF INTEREST --------------------------
+  ROI INSTRUCTIONS   :   39999994
+  ROI MISPREDICTIONS :      88226
+  ROI MPKI           :     2.2057
+  ROI COND BRANCHES  :    5661263
+  ROI ACCURACY       :   0.984416
+
+AllBr:9967485, CondBr:5661263, TakenBr:4688803, Ticks:6233296
+Bi : 2722337(0.48087) | BiW : 41054(0.01508) | BiC : 2681283(0.98492)
+TG : 2934393(0.51833) | TGW : 46758(0.01593) | TGC: 2887635(0.98407) 
+ATG: 4533(0.00080) | ATW : 1425(0.31436) | ATC: 3108(0.68564)
+Prov: T:[AS:799370 AC:13739, BS:1449067 AC:25049], A:[TS:2322 TC:1077, BS:2607 BC:685], B:[TS:1169 TC:605, AS:0 AC:0]
+MPKI:: BASE:38.1255, TAGE:2.2309 Red:1435784 (94.1485) Instr:39999994
+P0: 2722337, 0.48087 | C: 2681283, 0.47362 | W: 41054, 0.00725 | Alloc:0 | Allias: p:188,n:244
+P2: 513640, 0.09073 | C: 507500, 0.08964 | W: 6140, 0.00108 | Alloc:9010 | Allias: p:19468,n:301
+P6: 806325, 0.14243 | C: 798395, 0.14103 | W: 7930, 0.00140 | Alloc:14364 | Allias: p:12949,n:481
+P9: 247488, 0.04372 | C: 244326, 0.04316 | W: 3162, 0.00056 | Alloc:12484 | Allias: p:22125,n:635
+P10: 274704, 0.04852 | C: 271515, 0.04796 | W: 3189, 0.00056 | Alloc:12806 | Allias: p:38699,n:691
+P11: 90122, 0.01592 | C: 87925, 0.01553 | W: 2197, 0.00039 | Alloc:7025 | Allias: p:19139,n:781
+P12: 93626, 0.01654 | C: 91267, 0.01612 | W: 2359, 0.00042 | Alloc:6904 | Allias: p:19250,n:786
+P13: 149727, 0.02645 | C: 147405, 0.02604 | W: 2322, 0.00041 | Alloc:12404 | Allias: p:1685,n:58
+P14: 171612, 0.03031 | C: 169087, 0.02987 | W: 2525, 0.00045 | Alloc:12183 | Allias: p:1066,n:54
+P15: 85268, 0.01506 | C: 83437, 0.01474 | W: 1831, 0.00032 | Alloc:8809 | Allias: p:2020,n:65
+P16: 95386, 0.01685 | C: 93493, 0.01651 | W: 1893, 0.00033 | Alloc:8811 | Allias: p:2875,n:104
+P17: 61833, 0.01092 | C: 60535, 0.01069 | W: 1298, 0.00023 | Alloc:7738 | Allias: p:719,n:87
+P18: 72200, 0.01275 | C: 70773, 0.01250 | W: 1427, 0.00025 | Alloc:7871 | Allias: p:1473,n:79
+P19: 62670, 0.01107 | C: 60835, 0.01075 | W: 1835, 0.00032 | Alloc:5927 | Allias: p:1505,n:154
+P20: 53145, 0.00939 | C: 51295, 0.00906 | W: 1850, 0.00033 | Alloc:5768 | Allias: p:1187,n:101
+P21: 28362, 0.00501 | C: 27080, 0.00478 | W: 1282, 0.00023 | Alloc:4752 | Allias: p:843,n:147
+P22: 31108, 0.00549 | C: 29497, 0.00521 | W: 1611, 0.00028 | Alloc:4925 | Allias: p:975,n:177
+P24: 36728, 0.00649 | C: 35400, 0.00625 | W: 1328, 0.00023 | Alloc:4824 | Allias: p:1613,n:162
+P26: 25950, 0.00458 | C: 24557, 0.00434 | W: 1393, 0.00025 | Alloc:4942 | Allias: p:929,n:241
+P28: 17775, 0.00314 | C: 16640, 0.00294 | W: 1135, 0.00020 | Alloc:4362 | Allias: p:652,n:257
+P32: 13993, 0.00247 | C: 13147, 0.00232 | W: 846, 0.00015 | Alloc:4579 | Allias: p:853,n:387
+P36: 7264, 0.00128 | C: 6634, 0.00117 | W: 630, 0.00011 | Alloc:3662 | Allias: p:747,n:401
+Allocations:164150, Init:86915, AperI:1.89, TriesPerInit:4.012 | Useful: 0 | TC: 5572026, TW: 89237, uReset:2
+SCL:: L:[P:6020(0.0011) C:6010(0.9983), W:10(0.0017)] SC:[P:6610(0.0012) C:3806(0.5758), W:2804(0.4242)] TAGE:[P:5648633(0.9978) C:5563221(0.9849), W:85412(0.0151)] 
+MPKI:: TAGE:2.23093, SCL:2.20565 Red:1.13294 
+BRANCH_DIRECT_JUMP_BTB_MISS 24309
+BRANCH_DIRECT_JUMP_BTB_MPKI 0.6077
+BRANCH_INDIRECT_BTB_MISS 4324
+BRANCH_INDIRECT_BTB_MPKI 0.1081
+BRANCH_CONDITIONAL_BTB_MISS 49959
+BRANCH_CONDITIONAL_BTB_MPKI 1.2490
+BRANCH_DIRECT_CALL_BTB_MISS 44190
+BRANCH_DIRECT_CALL_BTB_MPKI 1.1048
+BRANCH_INDIRECT_CALL_BTB_MISS 2771
+BRANCH_INDIRECT_CALL_BTB_MPKI 0.0693
+BRANCH_RETURN_BTB_MISS 44018
+BRANCH_RETURN_BTB_MPKI 1.1005
+TOTAL_BTB_MISS 169571
+TOTAL_BTB_MPKI 4.239
+
+WALL_SECONDS 31.539466464
+MAXRSS_KB 7232

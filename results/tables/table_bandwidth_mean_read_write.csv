@@ -1,0 +1,4 @@
+predictor,read_bits_per_instr,write_bits_per_instr
+LLBP,8.1645,1.8845
+LLBP-X,7.7604,1.9313
+LLBP-X Opt-W,6.7242,1.5686

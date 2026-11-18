@@ -1,0 +1,23 @@
+[17:01:56] done tage64kscl dacapo-kafka rc=0 216.899275087s
+[17:02:21] done tage512kscl dacapo-kafka rc=0 242.616129136s
+[17:04:26] done llbp dacapo-kafka rc=0 366.940020897s
+[17:04:29] done llbp-timing dacapo-kafka rc=0 370.270942490s
+[17:04:39] done llbpx dacapo-kafka rc=0 380.618486112s
+[17:08:26] done llbpx-timing dacapo-kafka rc=0 390.376181089s
+[17:08:55] done llbpx-optw dacapo-kafka rc=0 393.319279069s
+[17:10:31] done llbpx-nodepth dacapo-kafka rc=0 351.474719941s
+[17:10:32] done llbpx-timing-nodepth dacapo-kafka rc=0 366.724960226s
+[17:10:46] done llbpx-timing-norange dacapo-kafka rc=0 377.269180151s
+[17:12:47] done tage64kscl nodeapp-nodeapp rc=0 232.417783801s
+[17:14:34] done tage512kscl nodeapp-nodeapp rc=0 242.862192841s
+[17:14:39] done llbpx-norange dacapo-kafka rc=0 372.748510127s
+[17:16:57] done llbp nodeapp-nodeapp rc=0 384.093924816s
+[17:17:27] done llbp-timing nodeapp-nodeapp rc=0 400.660962545s
+[17:19:45] done llbpx nodeapp-nodeapp rc=0 418.043732407s
+[17:21:42] done llbpx-timing nodeapp-nodeapp rc=0 427.896953915s
+[17:21:50] done llbpx-optw nodeapp-nodeapp rc=0 431.545257186s
+[17:23:44] done llbpx-timing-nodepth nodeapp-nodeapp rc=0 407.382918088s
+[17:24:34] done llbpx-timing-norange nodeapp-nodeapp rc=0 427.135008855s
+[17:26:12] done llbpx-nodepth nodeapp-nodeapp rc=0 387.173791489s
+[17:28:00] done llbpx-norange nodeapp-nodeapp rc=0 378.675125457s
+All requested simulations finished.

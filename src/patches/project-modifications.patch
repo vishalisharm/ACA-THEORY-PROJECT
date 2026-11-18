@@ -1,0 +1,188 @@
+diff --git a/bpmodels/base_predictor.cc b/bpmodels/base_predictor.cc
+index a4d6f72..114ab6c 100644
+--- a/bpmodels/base_predictor.cc
++++ b/bpmodels/base_predictor.cc
+@@ -26,6 +26,15 @@ BasePredictor* CreateBP(std::string bp_name)
+         return new LLBP::LLBPXTSCL64kTimingOptW();
+     } else if (bp_name == "llbpx-timing") {
+         return new LLBP::LLBPXTSCL64kTiming();
++    // [PROJECT-MOD] ablation models (see bpmodels/llbpx/llbpx.h)
++    } else if (bp_name == "llbpx-nodepth") {
++        return new LLBP::LLBPXAblation<false, false, true>();
++    } else if (bp_name == "llbpx-norange") {
++        return new LLBP::LLBPXAblation<false, true, false>();
++    } else if (bp_name == "llbpx-timing-nodepth") {
++        return new LLBP::LLBPXAblation<true, false, true>();
++    } else if (bp_name == "llbpx-timing-norange") {
++        return new LLBP::LLBPXAblation<true, true, false>();
+     } else {
+         std::cout << "Wrong BP name: " << bp_name << std::endl;
+         exit(EXIT_FAILURE);
+diff --git a/bpmodels/llbpx/llbpx.cc b/bpmodels/llbpx/llbpx.cc
+index d569fcf..541de5d 100644
+--- a/bpmodels/llbpx/llbpx.cc
++++ b/bpmodels/llbpx/llbpx.cc
+@@ -70,6 +70,8 @@ LLBPX::LLBPX(LLBPXConfig cfg)
+ 
+     simulateTiming(cfg.simulateTiming),
+     optW(cfg.optW),
++    depthAdaptation(cfg.depthAdaptation),
++    histRangeSel(cfg.histRangeSel),
+     warmup(false),
+     accessDelay(cfg.accessDelay),
+     adaptThreshold(cfg.adaptThreshold),
+@@ -179,6 +181,29 @@ LLBPX::LLBPX(LLBPXConfig cfg)
+     }
+     printf("\n");
+ 
++    // [PROJECT-MOD] Ablation: disable history range selection. Both the
++    // shallow and the deep context depth use the original LLBP set of 16
++    // TAGE history lengths (same list as FILTER_TABLES in llbp/llbp.cc),
++    // bucketed four per bucket exactly like LLBP-X's default tables.
++    if (!histRangeSel) {
++        fltTables[0].clear();
++        fltTables[nW-1].clear();
++        auto l_llbp = {6,10,13,14,15,16,17,18,  19,20,22,24,26,28,32,36};
++        int k = 0;
++        for (auto i : l_llbp) {
++            auto bucket = (k / 4) % 4;
++            fltTables[0][i] = ((k) << 2) | bucket;
++            fltTables[nW-1][i] = ((k) << 2) | bucket;
++            k++;
++        }
++        printf("[PROJECT-MOD] history range selection disabled: "
++               "both depths use the 16 original LLBP history lengths\n");
++    }
++    if (!depthAdaptation) {
++        printf("[PROJECT-MOD] dynamic context depth adaptation disabled: "
++               "all contexts use W=%i\n", WS[0]);
++    }
++
+ 
+ #endif
+ }
+@@ -680,7 +705,8 @@ bool LLBPX::llbpAllocate(int histLen, uint64_t pc, bool taken) {
+ 
+             const int th = 7;
+ 
+-            if (ci->allocVsDrop > th) {
++            // [PROJECT-MOD] depthAdaptation=false never switches depth.
++            if (depthAdaptation && ci->allocVsDrop > th) {
+                 if (ci->wi == 0) {
+                     ci->wi = nW-1;
+                     ci->allocVsDrop = 0;
+@@ -724,6 +750,7 @@ bool LLBPX::llbpAllocate(int histLen, uint64_t pc, bool taken) {
+ 
+ 
+ #ifdef FILTER_TABLES_HLEN_16
++    if (histRangeSel) {
+     if ((ci->wi == 0) && (histLen > 22)) {
+         drop = true;
+     }
+@@ -731,6 +758,13 @@ bool LLBPX::llbpAllocate(int histLen, uint64_t pc, bool taken) {
+     if ((ci->wi == nW-1) && (histLen < 12)) {
+         drop = true;
+     }
++    } else {
++        // [PROJECT-MOD] Ablation: only the fixed LLBP history set is
++        // allowed, independent of the context depth.
++        if (!fltTables[0].contains(histLen)) {
++            drop = true;
++        }
++    }
+ #endif
+ 
+ 
+diff --git a/bpmodels/llbpx/llbpx.h b/bpmodels/llbpx/llbpx.h
+index 3bc09ff..9a45b69 100644
+--- a/bpmodels/llbpx/llbpx.h
++++ b/bpmodels/llbpx/llbpx.h
+@@ -448,6 +448,9 @@ class LLBPX : public TageSCL {
+     // is set to true.
+     const bool simulateTiming;
+     const bool optW;
++    // [PROJECT-MOD] ablation switches, see LLBPXConfig.
++    const bool depthAdaptation;
++    const bool histRangeSel;
+ 
+     void prefetch();
+     void tickPrefetchQueue();
+@@ -607,19 +610,31 @@ struct LLBPXConfig {
+     bool optW = false;
+     int accessDelay = 4;
+ 
++    // [PROJECT-MOD] Ablation switches (not in the upstream artifact).
++    // Defaults reproduce the upstream LLBP-X behaviour exactly.
++    //  depthAdaptation=false : contexts never switch from the shallow
++    //                          (W=2) to the deep (W=64) context depth.
++    //  histRangeSel=false    : both context depths use the original LLBP
++    //                          fixed set of 16 TAGE history lengths instead
++    //                          of the depth-dependent short/long ranges.
++    bool depthAdaptation = true;
++    bool histRangeSel = true;
++
+ 
+   void print() const {
+     printf("LLBP Config: NumPatterns=%i, NumContexts=%i, ctxAssoc=%i, ptrnAssoc=%i, "
+            "CtrWidth=%i, ReplCtrWidth=%i, CtxReplCtrWidth=%i, pbSize=%i, "
+            "TTWidth=%i, CTWidth=%i, adaptThreshold=%i, histLenThreshold=%i, "
+            "CitSize=%i, CitAssoc=%i, BctxTTWidth=%i, "
+-           "simMispFlush=%i, accessDelay=%i, optW=%i"
++           "simMispFlush=%i, accessDelay=%i, optW=%i, "
++           "depthAdaptation=%i, histRangeSel=%i"
+            "\n ",
+            numPatterns, numContexts, ctxAssoc, ptrnAssoc,
+            CtrWidth, ReplCtrWidth, CtxReplCtrWidth, pbSize,
+            TTWidth, CTWidth, adaptThreshold, histLenThreshold,
+            CitSize, CitAssoc, BCTWidth,
+-           simulateTiming, accessDelay, optW
++           simulateTiming, accessDelay, optW,
++           depthAdaptation, histRangeSel
+            );
+   }
+ };
+@@ -686,4 +701,26 @@ class LLBPXTSCL64kTimingOptW : public LLBPX {
+ 
+ 
+ 
++// [PROJECT-MOD] Ablation models used to quantify the contribution of the
++// two LLBP-X optimisations (paper Sec. VII-E). All other parameters are
++// identical to the corresponding upstream LLBP-X model.
++template<bool Timing, bool Depth, bool Range>
++class LLBPXAblation : public LLBPX {
++   public:
++    LLBPXAblation(void)
++        : LLBPX(LLBPXConfig
++            {
++                .tsclConfig = TSCLConfig
++                {
++                    .tageConfig = Tage64kConfig,
++                    .useSC = true,
++                    .useLoop = true
++                },
++                .simulateTiming = Timing,
++                .depthAdaptation = Depth,
++                .histRangeSel = Range,
++            })
++    {}
++};
++
+ };  // namespace LLBP
+diff --git a/main.cc b/main.cc
+index 0d4971f..867d26d 100755
+--- a/main.cc
++++ b/main.cc
+@@ -417,6 +417,13 @@ int main(int argc, char* argv[]) {
+     printf("  ROI INSTRUCTIONS   : %10llu\n", roi_instr);
+     printf("  ROI MISPREDICTIONS : %10llu\n", roi_misp);
+     printf("  ROI MPKI           : %10.4f\n", 1000.0 * (double)(roi_misp) / (double)(roi_instr));
++    // [PROJECT-MOD] Print the number of conditional branches in the ROI and
++    // the resulting conditional-branch prediction accuracy (needed for the
++    // accuracy metric; does not change any simulated behaviour).
++    auto roi_cond = total_stats.numCond - warmup_stats.numCond;
++    printf("  ROI COND BRANCHES  : %10llu\n", roi_cond);
++    printf("  ROI ACCURACY       : %10.6f\n",
++           roi_cond ? 1.0 - (double)(roi_misp) / (double)(roi_cond) : 0.0);
+     printf("\n");
+ 
+     brpred->PrintStat(roi_instr);

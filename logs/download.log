@@ -1,0 +1,32 @@
+16:23:43 whiskey.426708 try=1 http=206 bytes=606621122/606621122
+DONE whiskey.426708 606621122
+16:24:05 charlie.1006518 try=1 http=206 bytes=768888209/768888209
+DONE charlie.1006518 768888209
+16:26:38 dacapo-tomcat try=1 http=206 bytes=1073741824/1073741824
+DONE dacapo-tomcat 1073741824
+16:27:04 dacapo-spring try=1 http=206 bytes=1073741824/1073741824
+DONE dacapo-spring 1073741824
+16:27:36 merced.467915 try=1 http=206 bytes=1073741824/1073741824
+16:27:36 delta.507252 try=1 http=206 bytes=879113687/879113687
+DONE merced.467915 1073741824
+DONE delta.507252 879113687
+16:27:56 benchbase-wikipedia try=1 http=206 bytes=1073741824/1073741824
+DONE benchbase-wikipedia 1073741824
+16:29:09 renaissance-finagle-chirper try=1 http=206 bytes=1073741824/1073741824
+DONE renaissance-finagle-chirper 1073741824
+16:33:23 benchbase-tpcc try=1 http=206 bytes=1073741824/1073741824
+DONE benchbase-tpcc 1073741824
+16:36:04 mwnginxfpm-wiki try=1 http=206 bytes=1073741824/1073741824
+DONE mwnginxfpm-wiki 1073741824
+16:36:32 benchbase-twitter try=1 http=206 bytes=1073741824/1073741824
+DONE benchbase-twitter 1073741824
+16:37:53 nodeapp-nodeapp try=1 http=206 bytes=1073741824/1073741824
+DONE nodeapp-nodeapp 1073741824
+16:38:41 dacapo-kafka try=1 http=206 bytes=1073741824/1073741824
+DONE dacapo-kafka 1073741824
+16:39:50 renaissance-finagle-http try=1 http=206 bytes=1073741824/1073741824
+DONE renaissance-finagle-http 1073741824
+16:50:46 dacapo-kafka try=1 http=206 bytes=1610612736/1610612736
+DONE dacapo-kafka 1610612736
+16:51:30 nodeapp-nodeapp try=1 http=206 bytes=1610612736/1610612736
+DONE nodeapp-nodeapp 1610612736

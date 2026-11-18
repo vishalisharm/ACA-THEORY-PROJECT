@@ -1,0 +1,16 @@
+file,local_bytes,zenodo_bytes,complete,fraction_used,md5_matches_zenodo,sha256
+benchbase-tpcc.champsim.trace.gz,1073741824,1934742757,False,0.555,n/a (prefix),005baf9b1bcbcf41085880a7a76abd01f4fa5e370a587edeaaacc333cdc97e83
+benchbase-twitter.champsim.trace.gz,1073741824,2032111522,False,0.5284,n/a (prefix),86e8ad4167be0d6c49aa51fea17f57cb694cac546da9ff9f45b9b95d53b4cd61
+benchbase-wikipedia.champsim.trace.gz,1073741824,1609958648,False,0.6669,n/a (prefix),0b59b4fe28db61d819b39f643744e42dc1fa256d2ac2d45b21b4d597ad2eb765
+charlie.1006518.champsim.trace.gz,768888209,768888209,True,1.0,True,06c3244c22cd646adbb66cbf19dbe81dde98d893c7c0b0fba0df978b43215224
+dacapo-kafka.champsim.trace.gz,1610612736,2434034555,False,0.6617,n/a (prefix),b91a410080bd8070d0f9ad737a0e25955909d667cbe096eb8a6df4b55dae776f
+dacapo-spring.champsim.trace.gz,1073741824,1596220971,False,0.6727,n/a (prefix),7ff4e93ab25bf76d897b20ab042a7b80f495c6acb000632d79f8ed028571dc7b
+dacapo-tomcat.champsim.trace.gz,1073741824,1759301185,False,0.6103,n/a (prefix),9be707535c4ce11ec868b1ed63cee370d093a43446c6d17336f7db81f63eb976
+delta.507252.champsim.trace.gz,879113687,879113687,True,1.0,True,5e7f75397b816e1b866ebb4838a2164be4827a5eb5195a70a573cb7a2f4bbcef
+merced.467915.champsim.trace.gz,1073741824,1826621943,False,0.5878,n/a (prefix),a54d7118bb0115ab5c7e90098684d8bacc071b95b293d718ede8948b8ece12c3
+mwnginxfpm-wiki.champsim.trace.gz,1073741824,2287272176,False,0.4694,n/a (prefix),7d2c349f627f382e4f724123c7bc4e2fc3af86596d808aaa55745937fc928c56
+nodeapp-nodeapp-small.champsim.trace.gz,104857600,104857600,True,1.0,True,04c5ee110ecdd3d6da5986cc7571751c1f252b58ce236ed0a2887a22b94febb7
+nodeapp-nodeapp.champsim.trace.gz,1610612736,2337914224,False,0.6889,n/a (prefix),ce02b95abab71106c1a0bc8e96bb2a416641fcf05b2e91f3a2e9f549795c9288
+renaissance-finagle-chirper.champsim.trace.gz,1073741824,1548180272,False,0.6936,n/a (prefix),3fc9d5d4df0ca0f12f415a47f7da6222c352585360f4e9cf9978e1889dc9be6f
+renaissance-finagle-http.champsim.trace.gz,1073741824,2378831841,False,0.4514,n/a (prefix),89db41d9384af064c73a647552596e8ccf8cf3ded6036130c9c16ff204c192df
+whiskey.426708.champsim.trace.gz,606621122,606621122,True,1.0,True,4610a74db9a1ca615ad774afa0f569c5721d297481c42bf67658515be0a32766

@@ -1,0 +1,52 @@
+[16:24:11] starting charlie.1006518
+[16:27:02] done tage64kscl charlie.1006518 rc=0 170.095945152s
+[16:27:15] done tage512kscl charlie.1006518 rc=0 183.555221759s
+[16:28:58] done llbp charlie.1006518 rc=0 286.292354158s
+[16:29:06] done llbp-timing charlie.1006518 rc=0 294.567995799s
+[16:29:13] done llbpx-timing-nodepth charlie.1006518 rc=0 301.608549590s
+[16:29:18] done llbpx charlie.1006518 rc=0 306.221253714s
+[16:29:18] done llbpx-nodepth charlie.1006518 rc=0 306.440564567s
+[16:29:19] done llbpx-norange charlie.1006518 rc=0 307.795608163s
+[16:29:23] done llbpx-timing charlie.1006518 rc=0 311.445364180s
+[16:29:24] done llbpx-timing-norange charlie.1006518 rc=0 312.122089937s
+[16:29:30] done llbpx-optw charlie.1006518 rc=0 318.242316778s
+All requested simulations finished.
+[16:29:30] starting delta.507252
+[16:31:46] done tage64kscl delta.507252 rc=0 136.239984981s
+[16:32:02] done tage512kscl delta.507252 rc=0 152.096965213s
+[16:33:00] done llbp delta.507252 rc=0 210.298369100s
+[16:33:04] done llbp-timing delta.507252 rc=0 214.699844798s
+[16:33:08] done llbpx-nodepth delta.507252 rc=0 217.986262956s
+[16:33:12] done llbpx-timing-nodepth delta.507252 rc=0 222.250730861s
+[16:33:17] done llbpx-norange delta.507252 rc=0 227.273291526s
+[16:33:17] done llbpx delta.507252 rc=0 227.441993701s
+[16:33:20] done llbpx-timing delta.507252 rc=0 230.146476401s
+[16:33:21] done llbpx-optw delta.507252 rc=0 231.118714686s
+[16:33:21] done llbpx-timing-norange delta.507252 rc=0 231.380946183s
+All requested simulations finished.
+[16:33:21] starting merced.467915
+[16:36:11] done tage64kscl merced.467915 rc=0 170.079248068s
+[16:36:31] done tage512kscl merced.467915 rc=0 189.562559785s
+[16:38:04] done llbp merced.467915 rc=0 283.263880145s
+[16:38:08] done llbp-timing merced.467915 rc=0 286.385866063s
+[16:38:15] done llbpx-nodepth merced.467915 rc=0 294.229160368s
+[16:38:17] done llbpx-optw merced.467915 rc=0 295.739744957s
+[16:38:19] done llbpx-timing-nodepth merced.467915 rc=0 298.251513761s
+[16:38:25] done llbpx merced.467915 rc=0 303.973342078s
+[16:38:27] done llbpx-norange merced.467915 rc=0 305.677106046s
+[16:38:28] done llbpx-timing merced.467915 rc=0 307.149286109s
+[16:38:30] done llbpx-timing-norange merced.467915 rc=0 308.688979018s
+All requested simulations finished.
+[16:38:30] starting whiskey.426708
+[16:41:32] done tage64kscl whiskey.426708 rc=0 182.258883932s
+[16:41:47] done tage512kscl whiskey.426708 rc=0 197.232724043s
+[16:44:24] done llbp whiskey.426708 rc=0 353.589020836s
+[16:44:26] done llbp-timing whiskey.426708 rc=0 356.144197937s
+[16:44:29] done llbpx-nodepth whiskey.426708 rc=0 358.669827374s
+[16:44:36] done llbpx-timing-nodepth whiskey.426708 rc=0 365.866498987s
+[16:44:41] done llbpx whiskey.426708 rc=0 370.515150503s
+[16:44:41] done llbpx-norange whiskey.426708 rc=0 371.390615682s
+[16:44:43] done llbpx-timing-norange whiskey.426708 rc=0 372.795604360s
+[16:44:47] done llbpx-optw whiskey.426708 rc=0 376.828137700s
+[16:44:49] done llbpx-timing whiskey.426708 rc=0 379.064819790s
+All requested simulations finished.

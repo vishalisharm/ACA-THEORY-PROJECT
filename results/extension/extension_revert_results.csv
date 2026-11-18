@@ -1,0 +1,29 @@
+workload,model_id,predictor,mpki,misp,accuracy,deep_alloc_pct,wrapped
+NodeApp,tage64kscl,64K TSL,4.425,885009,96.9346,,False
+NodeApp,llbp-timing,LLBP,3.3176,663524,97.7017,,False
+NodeApp,llbpx-timing,LLBP-X (upstream),3.2336,646716,97.7599,31.25469463338771,False
+NodeApp,llbpx-timing-revert,LLBP-X + reversion fix,3.4148,682952,97.6344,12.386865247071576,False
+Spring,tage64kscl,64K TSL,3.5813,716268,97.8741,,False
+Spring,llbp-timing,LLBP,3.2562,651230,98.0671,,False
+Spring,llbpx-timing,LLBP-X (upstream),2.8443,568860,98.3116,44.20756361088096,False
+Spring,llbpx-timing-revert,LLBP-X + reversion fix,2.949,589793,98.2495,26.494693062256818,False
+TPCC,tage64kscl,64K TSL,3.7442,748843,97.5507,,False
+TPCC,llbp-timing,LLBP,3.3368,667355,97.81729999999999,,False
+TPCC,llbpx-timing,LLBP-X (upstream),3.1958,639151,97.90950000000001,24.621525187977504,False
+TPCC,llbpx-timing-revert,LLBP-X + reversion fix,3.2517,650334,97.8729,7.32336356710393,False
+Wikipedia,tage64kscl,64K TSL,2.5187,503749,98.2324,,False
+Wikipedia,llbp-timing,LLBP,2.3695,473891,98.3372,,False
+Wikipedia,llbpx-timing,LLBP-X (upstream),2.2731,454617,98.40480000000001,31.072604517108804,False
+Wikipedia,llbpx-timing-revert,LLBP-X + reversion fix,2.3058,461152,98.3819,9.005386437095119,False
+Tomcat,tage64kscl,64K TSL,3.3964,679276,97.7988,,False
+Tomcat,llbp-timing,LLBP,3.2084,641671,97.92070000000001,,False
+Tomcat,llbpx-timing,LLBP-X (upstream),3.1391,627815,97.9656,34.92706487374271,False
+Tomcat,llbpx-timing-revert,LLBP-X + reversion fix,3.1729,634581,97.9437,14.239022488358579,False
+Merced,tage64kscl,64K TSL,4.1316,826316,97.4006,,False
+Merced,llbp-timing,LLBP,3.4989,699783,97.79870000000001,,False
+Merced,llbpx-timing,LLBP-X (upstream),3.3916,678329,97.8662,22.302329665183798,False
+Merced,llbpx-timing-revert,LLBP-X + reversion fix,3.3817,676338,97.8724,11.856120060418172,False
+Whiskey,tage64kscl,64K TSL,5.3841,1076826,96.6292,,True
+Whiskey,llbp-timing,LLBP,5.1611,1032212,96.7689,,True
+Whiskey,llbpx-timing,LLBP-X (upstream),5.1206,1024121,96.7942,19.59458017059715,True
+Whiskey,llbpx-timing-revert,LLBP-X + reversion fix,5.1253,1025052,96.7913,10.71303006187057,True

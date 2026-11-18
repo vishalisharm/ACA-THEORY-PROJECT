@@ -1,0 +1,16 @@
+file,size_bytes,md5
+benchbase-wikipedia.champsim.trace.gz,1609958648,7bcadcfcc470d49145c770e68e628480
+benchbase-twitter.champsim.trace.gz,2032111522,23501903d6b9d935823d6c490635be9f
+dacapo-kafka.champsim.trace.gz,2434034555,9bd64949d85e99a88978161ac7ab61b0
+charlie.1006518.champsim.trace.gz,768888209,0a4fd1c3f0a6d39f844ad9f2ece2b61d
+dacapo-spring.champsim.trace.gz,1596220971,343f7b58104fc6601bed9406f18e0940
+benchbase-tpcc.champsim.trace.gz,1934742757,654cb0999892f2a866386afdf858faed
+dacapo-tomcat.champsim.trace.gz,1759301185,e9366d7f6c38e9f75e1eaf174c6c0d21
+delta.507252.champsim.trace.gz,879113687,91e4f11b8c5e0404c161af5569b1713e
+merced.467915.champsim.trace.gz,1826621943,e6fb1ecb04de73b462140c216c490bce
+mwnginxfpm-wiki.champsim.trace.gz,2287272176,c4dd68037e69ff1241eb8450686ea527
+nodeapp-nodeapp.champsim.trace.gz,2337914224,5c0700d4b1b2f4bfc1d0bebeb7e08256
+renaissance-finagle-chirper.champsim.trace.gz,1548180272,01c234e3e73e20b5498cea5fdea0761b
+nodeapp-nodeapp-small.champsim.trace.gz,104857600,d9dd9a1b000eb9c7084ba74ce4f10983
+renaissance-finagle-http.champsim.trace.gz,2378831841,063c076780a0f363a0a589530e75e1ca
+whiskey.426708.champsim.trace.gz,606621122,47ef5e3e6dd616b18bf0afa3b5841f2a

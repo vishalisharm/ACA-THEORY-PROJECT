@@ -1,0 +1,7 @@
+Determinism check (2026-11-16): llbpx-timing on delta.507252, -w 100000000 -n 200000000 --simulate-btb
+Binary: fresh CMake Release build in an empty directory (README commands) vs. original campaign binary.
+
+re-run   :  ROI MISPREDICTIONS : 214082  ROI MPKI : 1.0704 
+campaign :  ROI MISPREDICTIONS : 214082  ROI MPKI : 1.0704 
+
+Full statistics output diff (excluding output-path and timing lines): the only difference is the TRACE path line (relative vs. absolute path). All statistics are identical.

@@ -1,0 +1,15 @@
+workload,paper_64k_tsl_mpki
+NodeApp,4.43
+PHPWiki,3.08
+TPCC,3.74
+Twitter,3.03
+Wikipedia,2.52
+Kafka,0.26
+Spring,3.58
+Tomcat,3.40
+Chirper,0.48
+HTTP,2.81
+Charlie,2.89
+Delta,1.09
+Merced,4.13
+Whiskey,5.38

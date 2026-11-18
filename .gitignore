@@ -1,0 +1,32 @@
+# Python / tooling
+.venv/
+.venv
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Build outputs
+artifact/build/
+build/
+
+# gem5 source tree + build (~GBs); recreate with SETUP.md section 6
+gem5/
+
+# Large benchmark traces (download with logs/download.sh)
+artifact/traces/*.gz
+artifact/traces/*.part
+*.champsim.trace.gz
+*.champsimtrace.xz
+
+# Temporary files
+*.tmp
+*.rss
+*.swp
+.DS_Store
+
+# Upstream git history of the vendored artifact (kept locally, not committed)
+.upstream/
+
+# Paper PDFs / text extractions (authors' copyright; download links in docs/paper/README.md)
+docs/paper/*.pdf
+docs/paper/*.txt

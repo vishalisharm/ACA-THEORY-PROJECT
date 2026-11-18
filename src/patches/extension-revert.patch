@@ -1,0 +1,82 @@
+diff --git a/artifact/bpmodels/base_predictor.cc b/artifact/bpmodels/base_predictor.cc
+index 114ab6c..7251a09 100644
+--- a/artifact/bpmodels/base_predictor.cc
++++ b/artifact/bpmodels/base_predictor.cc
+@@ -27,6 +27,9 @@ BasePredictor* CreateBP(std::string bp_name)
+     } else if (bp_name == "llbpx-timing") {
+         return new LLBP::LLBPXTSCL64kTiming();
+     // [PROJECT-MOD] ablation models (see bpmodels/llbpx/llbpx.h)
++    // [PROJECT-MOD] reachable deep->shallow reversion
++    } else if (bp_name == "llbpx-timing-revert") {
++        return new LLBP::LLBPXTSCL64kTimingRevert();
+     } else if (bp_name == "llbpx-nodepth") {
+         return new LLBP::LLBPXAblation<false, false, true>();
+     } else if (bp_name == "llbpx-norange") {
+diff --git a/artifact/bpmodels/llbpx/llbpx.cc b/artifact/bpmodels/llbpx/llbpx.cc
+index 541de5d..0784ff0 100644
+--- a/artifact/bpmodels/llbpx/llbpx.cc
++++ b/artifact/bpmodels/llbpx/llbpx.cc
+@@ -72,6 +72,7 @@ LLBPX::LLBPX(LLBPXConfig cfg)
+     optW(cfg.optW),
+     depthAdaptation(cfg.depthAdaptation),
+     histRangeSel(cfg.histRangeSel),
++    revertDepth(cfg.revertDepth),
+     warmup(false),
+     accessDelay(cfg.accessDelay),
+     adaptThreshold(cfg.adaptThreshold),
+@@ -701,7 +702,8 @@ bool LLBPX::llbpAllocate(int histLen, uint64_t pc, bool taken) {
+     if (ci) {
+ 
+         if ((ci->fullPatternSets >= 0) &&
+-            (ci->wi < nW-1)) {
++            // [PROJECT-MOD] upstream: only shallow contexts may switch.
++            (revertDepth || ci->wi < nW-1)) {
+ 
+             const int th = 7;
+ 
+diff --git a/artifact/bpmodels/llbpx/llbpx.h b/artifact/bpmodels/llbpx/llbpx.h
+index 9a45b69..308b39a 100644
+--- a/artifact/bpmodels/llbpx/llbpx.h
++++ b/artifact/bpmodels/llbpx/llbpx.h
+@@ -451,6 +451,7 @@ class LLBPX : public TageSCL {
+     // [PROJECT-MOD] ablation switches, see LLBPXConfig.
+     const bool depthAdaptation;
+     const bool histRangeSel;
++    const bool revertDepth;  // [PROJECT-MOD]
+ 
+     void prefetch();
+     void tickPrefetchQueue();
+@@ -619,6 +620,10 @@ struct LLBPXConfig {
+     //                          of the depth-dependent short/long ranges.
+     bool depthAdaptation = true;
+     bool histRangeSel = true;
++    // [PROJECT-MOD] revertDepth=true makes the deep->shallow (W=64 -> W=2)
++    // transition reachable, as described in the paper (Sec. V-B.1). Upstream
++    // guards the switch with `wi < nW-1`, so it only ever goes 2 -> 64.
++    bool revertDepth = false;
+ 
+ 
+   void print() const {
+@@ -723,4 +728,22 @@ class LLBPXAblation : public LLBPX {
+     {}
+ };
+ 
++// [PROJECT-MOD] LLBP-X (timing) with the paper's deep->shallow reversion enabled.
++class LLBPXTSCL64kTimingRevert : public LLBPX {
++   public:
++    LLBPXTSCL64kTimingRevert(void)
++        : LLBPX(LLBPXConfig
++            {
++                .tsclConfig = TSCLConfig
++                {
++                    .tageConfig = Tage64kConfig,
++                    .useSC = true,
++                    .useLoop = true
++                },
++                .simulateTiming = true,
++                .revertDepth = true,
++            })
++    {}
++};
++
+ };  // namespace LLBP
